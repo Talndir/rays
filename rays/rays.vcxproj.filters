@@ -21,9 +21,15 @@
     <ClCompile Include="source\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\shaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\shaderProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

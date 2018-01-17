@@ -1,9 +1,7 @@
-// Include GLEW and GLFW
 #define GLEW_STATIC			// Linking GLEW statically, requires glew32s.dll
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
 
-#include <iostream>
+#include "..\header\shaderProgram.h"
+
 #include <Windows.h>
 
 const int GL_VERSION_MAJOR = 4;
