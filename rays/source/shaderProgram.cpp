@@ -2,9 +2,10 @@
 
 ShaderProgram::ShaderProgram()
 {
+	this->id = glCreateProgram();
 }
 
-bool ShaderProgram::addShader(std::string & filePath, int shaderType)
+bool ShaderProgram::addShader(std::string filePath, int shaderType)
 {
 	Shader s;
 	bool result = s.createShader(filePath, shaderType);
@@ -16,7 +17,7 @@ bool ShaderProgram::addShader(std::string & filePath, int shaderType)
 	}
 
 	shaders.push_back(s);
-	glAttachShader(s.getId(), shaderType);
+	glAttachShader(this->id, s.getId());
 
 	return true;
 }
@@ -37,10 +38,31 @@ bool ShaderProgram::linkProgram()
 		return false;
 	}
 
+	std::cout << "Linking shader program OK" << std::endl;
 	return true;
+}
+
+bool ShaderProgram::reloadProgram()
+{
+	bool result = true;
+
+	for (int i = 0; i < shaders.size(); ++i)
+		result &= shaders.at(i).reloadShader();
+
+	result &= this->linkProgram();
+
+	return result;
 }
 
 void ShaderProgram::useProgram()
 {
 	glUseProgram(this->id);
+}
+
+void ShaderProgram::deleteProgram()
+{
+	for (int i = 0; i < shaders.size(); ++i)
+		shaders.at(i).deleteShader();
+
+	glDeleteProgram(this->id);
 }

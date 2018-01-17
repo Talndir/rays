@@ -101,8 +101,6 @@
     <Link>
       <AdditionalLibraryDirectories>C:\Libraries\glfw\lib-vc2015;C:\Libraries\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/SUBSYSTEM:windows
-/ENTRY:mainCRTStartup %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,8 +131,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\Libraries\glfw\lib-vc2015;C:\Libraries\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/SUBSYSTEM:windows
-/ENTRY:mainCRTStartup %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -145,6 +141,10 @@
   <ItemGroup>
     <ClInclude Include="header\shader.h" />
     <ClInclude Include="header\shaderProgram.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\test_frag.glsl" />
+    <None Include="shader\test_vert.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

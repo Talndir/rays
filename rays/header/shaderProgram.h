@@ -9,9 +9,11 @@ class ShaderProgram
 public:
 	ShaderProgram();
 
-	bool addShader(std::string& filePath, int shaderType);
+	bool addShader(std::string filePath, int shaderType);
 	bool linkProgram();
+	bool reloadProgram();
 	void useProgram();
+	void deleteProgram();
 
 private:
 	GLuint id;
